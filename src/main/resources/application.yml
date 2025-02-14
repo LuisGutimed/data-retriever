@@ -1,0 +1,35 @@
+server:
+  port: 8084
+spring:
+  cloud:
+    discovery:
+      enabled: true
+    netflix:
+      eureka:
+        client:
+          serviceUrl:
+            defaultZone: http://localhost:8761/eureka/
+
+  application:
+    name: data-retriever
+  data:
+    elasticsearch:
+      repositories:
+        enabled: true
+    redis:
+      host: localhost
+      port: 6379
+      client-type: lettuce
+data-retriever:
+  config:
+    client:
+      name: API-OPERATOR
+      item:
+        operation:
+          find-all: /api/item/all
+          find-id: /api/item/{id}
+      promotion:
+        operation:
+          find-all: /api/promotion/all
+          find-id: /api/promotion/{id}
+
