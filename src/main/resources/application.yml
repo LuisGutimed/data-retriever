@@ -4,12 +4,6 @@ spring:
   cloud:
     discovery:
       enabled: true
-    netflix:
-      eureka:
-        client:
-          serviceUrl:
-            defaultZone: ${EUREKA}
-
   application:
     name: data-retriever
   data:
@@ -33,3 +27,7 @@ data-retriever:
           find-all: /api/movie/all
           find-id: /api/movie/{id}
           search: /api/movie/find
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA}
