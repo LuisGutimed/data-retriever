@@ -18,6 +18,7 @@ spring:
       connect-timeout: 5000
 data-retriever:
   rest:
+    host: https://api-operator-production.up.railway.app
     base-path: /api/movie
     get-movie: /{id}
     get-movies: /all

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@FeignClient(name = "${data-retriever.config.client.name}")
+@FeignClient(name = "${data-retriever.config.client.name}", url = "${data-retriever.rest.host}")
 public interface IApiOperatorClient {
 
   @GetMapping("${data-retriever.config.client.movie.operation.find-all}")
