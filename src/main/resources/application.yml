@@ -1,3 +1,5 @@
+server:
+  port: 8084
 spring:
   cloud:
     discovery:
@@ -6,14 +8,17 @@ spring:
       eureka:
         client:
           serviceUrl:
-            defaultZone: { HOST-EUREKA }
+            defaultZone: ${EUREKA}
 
   application:
     name: data-retriever
+  data:
     redis:
-      host: { HOST_REDIS }
-      port: { PORT-REDIS }
+      host: ${REDISHOST}
+      port: ${REDISPORT}
       client-type: lettuce
+      username: ${REDISUSER}
+      password: ${REDISPASSWORD}
 data-retriever:
   rest:
     base-path: /api/movie
