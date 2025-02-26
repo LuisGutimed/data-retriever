@@ -6,28 +6,25 @@ spring:
       eureka:
         client:
           serviceUrl:
-            defaultZone: http://localhost:8761/eureka/
+            defaultZone: { HOST-EUREKA }
 
   application:
     name: data-retriever
-  data:
-    elasticsearch:
-      repositories:
-        enabled: true
     redis:
-      host: localhost
-      database: 0
-      port: 6379
-      connect-timeout: 2000
+      host: { HOST_REDIS }
+      port: { PORT-REDIS }
+      client-type: lettuce
 data-retriever:
+  rest:
+    base-path: /api/movie
+    get-movie: /{id}
+    get-movies: /all
+    search: /find
   config:
     client:
       name: API-OPERATOR
-      item:
+      movie:
         operation:
-          find-all: /api/item/all
-          find-id: /api/item/{id}
-      promotion:
-        operation:
-          find-all: /api/promotion/all
-          find-id: /api/promotion/{id}
+          find-all: /api/movie/all
+          find-id: /api/movie/{id}
+          search: /api/movie/find

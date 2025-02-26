@@ -7,16 +7,16 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class ItemDto implements Serializable {
+public class MovieDto implements Serializable {
 
   @Serial
   private static final long serialVersionUID = 1624348146750533487L;
   private String id;
-  private String name;
+  private String title;
+  private String genre;
+  private String director;
   private String description;
-  private String image;
-  private boolean status;
-  private double price;
-  private CategoryDto category;
-
+  private double rentPrice;
+  private String coverImageUrl;
+  private String thrillerUrl;
 }
